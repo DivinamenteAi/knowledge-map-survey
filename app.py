@@ -11,6 +11,10 @@ def connect_db():
     conn = sqlite3.connect(DATABASE)
     return conn
 
+@app.route('/', methods=['GET'])
+def index():
+    return "🚀 Servidor rodando com sucesso! Backend online!"
+
 @app.route('/submit', methods=['POST'])
 def submit_survey():
     data = request.json
@@ -40,4 +44,3 @@ if __name__ == "__main__":
     import os
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
-
